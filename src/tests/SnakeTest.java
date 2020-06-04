@@ -40,9 +40,9 @@ class SnakeTest {
 
     @org.junit.jupiter.api.Test
     void addTail() {
-        assertTrue(snake.tails.size() == 0);
+        int size = snake.tails.size();
         snake.addTail();
-        assertTrue(snake.tails.size() == 1);
+        assertTrue(snake.tails.size() == size + 1);
         assertTrue(snake.tails.get(0) instanceof Tail && snake.tails.get(0) instanceof SnakePart);
     }
 
