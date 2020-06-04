@@ -20,6 +20,7 @@ public class Nibbler {
     private static final String APPLE_COUNTER_FORMAT = "%1$03d";
     private static final String HIGHSCORE_FILE = "nibbler_highscore.txt";
     private static final String AUTHOR = "NICO DIMISIANOS";
+    private static final String AUTHOR_NUMBER = "701688";
 
 
     private boolean play = true;
@@ -114,7 +115,7 @@ public class Nibbler {
         gameView.addToCanvas("Welcome to Nibbler!", 1, 7, Color.ORANGE);
         String message = "\n\n\n\nPlease enter your name: ";
         String name = gameView.getStringFromUser(message, 10);
-        gameView.addToCanvas("© 2020 | Nico Dimisianos (701688)", 19, 1, Color.CYAN);
+        gameView.addToCanvas("© 2020 | " + AUTHOR + " (" + AUTHOR_NUMBER + ")", 19, 1, Color.CYAN);
         gameView.printCanvas();
 
         name = name.trim().toLowerCase();
