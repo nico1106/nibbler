@@ -4,8 +4,7 @@ public abstract class SnakePart {
     private int x, y;
 
     public SnakePart(int y, int x) {
-        this.y = y;
-        this.x = x;
+        setPosition(y, x);
     }
 
     /**
