@@ -24,18 +24,18 @@ class SnakeTest {
 
     @org.junit.jupiter.api.Test
     void getXPositon() {
-        assertTrue(snake.head.getX() == Nibbler.getColumns() / 2);
+        assertTrue(Snake.head.getX() == Nibbler.getColumns() / 2);
     }
 
     @org.junit.jupiter.api.Test
     void getYPosition() {
-        assertTrue(snake.head.getY() == Nibbler.getColumns() / 2 - 4 );
+        assertTrue(Snake.head.getY() == Nibbler.getColumns() / 2 - 4);
     }
 
     @org.junit.jupiter.api.Test
     void getHead() {
-        assertTrue(snake.head.toString().equals("R"));
-        assertTrue(snake.head instanceof Head && snake.head instanceof SnakePart );
+        assertTrue(Snake.head.toString().equals("R"));
+        assertTrue(Snake.head instanceof Head && Snake.head instanceof SnakePart);
     }
 
     @org.junit.jupiter.api.Test
@@ -49,29 +49,33 @@ class SnakeTest {
     @Test
     void move() {
         int x, y;
-        x = snake.head.getX(); y = snake.head.getY();
-        snake.head.setDirection(Head.Direction.RIGHT);
+        x = Snake.head.getX();
+        y = Snake.head.getY();
+        Snake.head.setDirection(Head.Direction.RIGHT);
         snake.move();
-        assertTrue(x+1 == snake.head.getX());
-        assertTrue(y == snake.head.getY());
+        assertTrue(x + 1 == Snake.head.getX());
+        assertTrue(y == Snake.head.getY());
 
-        x = snake.head.getX(); y = snake.head.getY();
-        snake.head.setDirection(Head.Direction.UP);
+        x = Snake.head.getX();
+        y = Snake.head.getY();
+        Snake.head.setDirection(Head.Direction.UP);
         snake.move();
-        assertTrue(x == snake.head.getX());
-        assertTrue(y-1 == snake.head.getY());
+        assertTrue(x == Snake.head.getX());
+        assertTrue(y - 1 == Snake.head.getY());
 
-        x = snake.head.getX(); y = snake.head.getY();
-        snake.head.setDirection(Head.Direction.LEFT);
+        x = Snake.head.getX();
+        y = Snake.head.getY();
+        Snake.head.setDirection(Head.Direction.LEFT);
         snake.move();
-        assertTrue(x-1 == snake.head.getX());
-        assertTrue(y == snake.head.getY());
+        assertTrue(x - 1 == Snake.head.getX());
+        assertTrue(y == Snake.head.getY());
 
-        x = snake.head.getX(); y = snake.head.getY();
-        snake.head.setDirection(Head.Direction.DOWN);
+        x = Snake.head.getX();
+        y = Snake.head.getY();
+        Snake.head.setDirection(Head.Direction.DOWN);
         snake.move();
-        assertTrue(x == snake.head.getX());
-        assertTrue(y+1 == snake.head.getY());
+        assertTrue(x == Snake.head.getX());
+        assertTrue(y + 1 == Snake.head.getY());
 
     }
 }

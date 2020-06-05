@@ -31,15 +31,16 @@ class CollisionTest {
 
     @Test
     void collideWithApple() {
-        int x,y;
-        x = apple.getX(); y = apple.getY();
-        snake.head.setPosition(y, x);
+        int x, y;
+        x = apple.getX();
+        y = apple.getY();
+        Snake.head.setPosition(y, x);
         assertTrue(collision.collideWithApple(snake, apple));
     }
 
     @Test
     void collideWithSelf() {
-        for (int i = 0; i<=15; i++) {
+        for (int i = 0; i <= 15; i++) {
             snake.move();
             snake.addTail();
         }
@@ -47,7 +48,7 @@ class CollisionTest {
         Random random = new Random();
         int r = random.nextInt(snake.tails.size());
 
-        snake.head.setPosition(snake.tails.get(r).getY(), snake.tails.get(r).getX());
+        Snake.head.setPosition(snake.tails.get(r).getY(), snake.tails.get(r).getX());
         assertTrue(collision.collideWithSelf(snake));
 
     }

@@ -33,7 +33,8 @@ class AppleTest {
         int x, y;
         apple.setY(20);
         apple.setX(15);
-        x = apple.getX(); y = apple.getY();
+        x = apple.getX();
+        y = apple.getY();
         apple.reset();
         assertTrue(!(x == apple.getX()));
         assertTrue(!(y == apple.getY()));

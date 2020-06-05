@@ -46,14 +46,14 @@ class FileHandlerTest {
     @Test
     void writeScoreToFile() {
         int highscore = player.getHighscore();
-        int new_score = highscore+1;
+        int new_score = highscore + 1;
         player.setCurrentscore(new_score);
-        if(player.getCurrentscore() > player.getHighscore()) {
+        if (player.getCurrentscore() > player.getHighscore()) {
             FileHandler.writeScoreToFile(player);
             assertTrue(new_score == FileHandler.getHighscoreFromFile(player));
-            player.setCurrentscore(new_score+1);
+            player.setCurrentscore(new_score + 1);
             FileHandler.writeScoreToFile(player);
-            assertTrue(new_score+1 == FileHandler.getHighscoreFromFile(player));
+            assertTrue(new_score + 1 == FileHandler.getHighscoreFromFile(player));
         } else {
             fail("Test was not successful. Your function is not correctly implemented.");
         }
