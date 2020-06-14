@@ -67,9 +67,8 @@ public class Snake implements Movable {
             int x = head.getX();
             tails.add(new Tail(y, x));
         } else {
-            int y = tails.get(tails.size() - 1).getY();
-            int x = tails.get(tails.size() - 1).getX();
-            tails.add(new Tail(y, x));
+            Tail tailCopy = tails.get(tails.size() - 1).clone();
+            tails.add(tailCopy);
         }
     }
 

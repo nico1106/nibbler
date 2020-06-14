@@ -1,6 +1,6 @@
 package nibbler.game;
 
-public class Tail extends SnakePart {
+public class Tail extends SnakePart implements Cloneable {
 
     private boolean wait = true;
 
@@ -32,4 +32,14 @@ public class Tail extends SnakePart {
 
     /** {@inheritDoc} */
     public String toString(){ return "G"; }
+
+    /**
+     * Clones the tail with its values.
+     * @return Tail object.
+     */
+    @Override
+    public Tail clone() {
+        Tail copy = new Tail(getY(), getX());
+        return copy;
+    }
 }

@@ -70,9 +70,12 @@ public class Nibbler {
             play = true;
             while (play) {
                 try { Thread.sleep(5); } catch (InterruptedException ignore) {}
+                // evaluate User Input
                 evaluateKeys();
+                // calculate matchfield
                 calculateMatchfield(level);
                 long now = System.currentTimeMillis();
+                // print canvas every 16ms
                 if (now - lastDisplayed >= 15) {
                     gameView.printCanvas();
                     lastDisplayed = now;
@@ -153,11 +156,19 @@ public class Nibbler {
         random = new Random();
         int x = random.nextInt(Nibbler.getColumns());
         int y = random.nextInt((Nibbler.getRows() - 1) - 10 + 1) + 10;
-        if (gameView.getCharacter(y, x) == 'X' || gameView.getCharacter(y, x) == 'R' || gameView.getCharacter(y, x) == 'G') {
+        if (gameView.getCharacter(y, x) == 'X' || checkPointsWithSnake(y, x) ){
             setRandomPointsToApple(apple);
         } else {
             apple.setX(x); apple.setY(y);
         }
+    }
+
+    private boolean checkPointsWithSnake(int y, int x){
+        for(int i=0;i<snake.tails.size();i++){
+            if(snake.tails.get(i).getX() == x && snake.tails.get(i).getY() == y) return true;
+        }
+        if (snake.head.getX() == x && snake.head.getY() == y) return true;
+        return false;
     }
 
     private boolean checkMoveForward(Head.Direction direction) {
@@ -227,7 +238,7 @@ public class Nibbler {
         try { Thread.sleep(1000); } catch (InterruptedException ignore) {}
         gameView.changeResolution(10, 40);
         gameView.addToCanvas("You are a HERO!", 1, 12, Color.ORANGE);
-        gameView.addToCanvas("You mastered the HARD Nibbler game", 3, 3);
+        gameView.addToCanvas("You mastered the Nibbler game", 3, 3);
         gameView.addToCanvas("made by", 5, 16);
         gameView.addToCanvas(Nibbler.AUTHOR, 8, 12, Color.CYAN);
         gameView.printCanvas();
