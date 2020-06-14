@@ -83,4 +83,31 @@ public class Snake implements Movable {
      * @param waitToMove TRUE, if the snake shouldn't be moved, otherwise FALSE.
      */
     public void setWaitToMove(boolean waitToMove) { this.waitToMove = waitToMove; }
+
+    /**
+     * Returns a snake in pixel to be displayed on the UI.
+     * @return snake as String.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("WWWWWWWWWWWWWWWWW\n");
+        sb.append("WWWWWBBBBBWWWWWWW\n");
+        sb.append("WWWWBHHHHHBWWWWWW\n");
+        sb.append("WWWWBHHHHHHSWWWWW\n");
+        sb.append("WWWBHBHHHBHBWWWWW\n");
+        sb.append("WWWBHBHHHBHBWWWWW\n");
+        sb.append("WWWBPHHHHHPGBWWWW\n");
+        sb.append("WWWWBGGGGGGBWWWWW\n");
+        sb.append("WWWWWBBBBBBBWWWWW\n");
+        sb.append("WWWBBHHBHHGBBWWWW\n");
+        sb.append("WWBHHHBHHHGBGBWWW\n");
+        sb.append("WBHHBGGGGGBHGGBWW\n");
+        sb.append("WBGHHBBBBBHHGBGBW\n");
+        sb.append("WBGHHHHHHHHHGBGBW\n");
+        sb.append("WWBGGGGGGGGGBBGBW\n");
+        sb.append("WWWBBBBBBBBBWWBWW\n");
+        sb.append("WWWWWWWWWWWWWWWWW\n");
+        return sb.toString();
+    }
 }

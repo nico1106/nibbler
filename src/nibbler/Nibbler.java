@@ -100,19 +100,23 @@ public class Nibbler {
     }
 
     private void showStartScreen() {
-        gameView.changeResolution(20, 35);
+        gameView.changeResolution(40, 40);
+        HashMap<Character, Color> colorMap = new HashMap<>(Map.of('B', Color.BLACK, 'W', Color.WHITE, 'H', new Color(107, 176, 66), 'P', Color.PINK, 'G', new Color(48, 102, 69)));
+        gameView.setColormap(colorMap);
+        gameView.addColorStringToCanvas(snake.toString(), 2, 11);
+        gameView.printCanvas();
         gameView.stopAllSounds();
         gameView.playSound("loading_screen_sound.wav", true);
-        gameView.addToCanvas("Welcome to Nibbler!", 1, 7, Color.ORANGE);
-        String message = "\n\n\n\nPlease enter your name: ";
+        gameView.addToCanvas("NIBBLER", 20, 16, Color.ORANGE);
+        String message = "\n\n\n    Please enter your name: ";
         String name = gameView.getStringFromUser(message, 10);
-        gameView.addToCanvas("© 2020 | " + AUTHOR + " (" + AUTHOR_NUMBER + ")", 19, 1, Color.CYAN);
+        gameView.addToCanvas("© 2020 | " + AUTHOR + " (" + AUTHOR_NUMBER + ")", 38, 3, Color.CYAN);
         gameView.printCanvas();
         name = name.trim().toLowerCase();
         if (name == null || name.equals("")) { initGame(); play(); }
         player.setName(name);
         player.setHighscore(FileHandler.getHighscoreFromFile(player));
-        gameView.addToCanvasCentered("Please hit --> ENTER <--");
+        gameView.addToCanvas("Please hit <<< ENTER >>>", 29, 8);
         gameView.printCanvas();
 
         while (true) {
