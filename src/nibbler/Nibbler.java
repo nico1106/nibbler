@@ -240,7 +240,7 @@ public class Nibbler {
         try { Thread.sleep(1000); } catch (InterruptedException ignore) {}
         gameView.changeResolution(10, 40);
         gameView.addToCanvas("You are a HERO!", 1, 12, Color.ORANGE);
-        gameView.addToCanvas("You mastered the Nibbler game", 3, 3);
+        gameView.addToCanvas("You mastered the Nibbler game", 3, 5);
         gameView.addToCanvas("made by", 5, 16);
         gameView.addToCanvas(Nibbler.AUTHOR, 8, 12, Color.CYAN);
         gameView.printCanvas();

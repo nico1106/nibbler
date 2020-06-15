@@ -47,22 +47,22 @@ public abstract class WallDesign {
     public static final String WALL_LEVEL_3 =
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n" +
                     "X                                      X\r\n" +
-                    "X                                      X\r\n" +
-                    "X XXX   XX   XX   XXXXXXX   XXXXXXX    X\r\n" +
-                    "X XXXX  XX   XX   XX        XX   XX    X\r\n" +
-                    "X XX XX XX   XX   XX        XX   XX    X\r\n" +
-                    "X XX  XXXX   XX   XXXXXXX   XXXXXXX    X\r\n" +
-                    "X                                      X\r\n" +
-                    "X            XX       XX               X\r\n" +
-                    "X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    X\r\n" +
-                    "X                                      X\r\n" +
-                    "X                                      X\r\n" +
-                    "X       XXXX                    XXX    X\r\n" +
-                    "X      XX XX        XX          XXX    X\r\n" +
-                    "X     XX  XX        XX          XXX    X\r\n" +
-                    "X         XX    XXXXXXXXXXX     XXX    X\r\n" +
-                    "X         XX        XX                 X\r\n" +
-                    "X         XX        XX          XXX    X\r\n" +
-                    "X                                      X\r\n" +
+                    "X        XX    XXXXXX      XXX         X\r\n" +
+                    "X XXXXXXXXX       XXXXXXXXXXXXXXXXX    X\r\n" +
+                    "X XX     XX  XX                  XX    X\r\n" +
+                    "X XX  X  XX  XX         XX       XX    X\r\n" +
+                    "X XX  X      XX   XX    XXXXXXXXXXX    X\r\n" +
+                    "X     XXXXXXXXX   XX                   X\r\n" +
+                    "X            XX      XX         XXX    X\r\n" +
+                    "X           XXX  XXXXXXXXXXXXXXXXXX    X\r\n" +
+                    "X   XXXXXXXXXXX          XX            X\r\n" +
+                    "X                                    XXX\r\n" +
+                    "X   XX   XXX XXXXXXXXXXXXXX     XXXXXXXX\r\n" +
+                    "X   X     XX        XX          XXX   XX\r\n" +
+                    "X   X     XX        XX        XXXXX   XX\r\n" +
+                    "X   X     XX       XXXX     XXX       XX\r\n" +
+                    "X   XXXXXXXX       XXXX      XX       XX\r\n" +
+                    "X   XXXXXXXX    XXXXXXXXXXX      XXX  XX\r\n" +
+                    "X                                     XX\r\n" +
                     "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 }
