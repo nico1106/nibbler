@@ -10,11 +10,11 @@ Die Schlange wird mit den Pfeiltasten der Tastatur gelenkt und bewegt sich autom
 
 ## Startbildschirm
 
-![Startbildschirm](resources/nibbler_start_screen.png)
+![Startbildschirm](src/resources/nibbler_start_screen.png)
 
 ## Hauptbildschirm
 
-![Hauptbildschirm](resources/nibbler_main_screen.png)
+![Hauptbildschirm](src/resources/nibbler_main_screen.png)
 
 
 
