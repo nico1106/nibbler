@@ -1,6 +1,6 @@
 package nibbler.game;
 
-public class Tail extends SnakePart implements Cloneable {
+public class Tail extends SnakePart implements Cloneable, Drawable {
 
     private boolean wait = true;
 

@@ -1,6 +1,6 @@
 package nibbler.game;
 
-public class Apple {
+public class Apple implements Drawable {
     private int x, y;
 
     /** Creates a new Apple Object.

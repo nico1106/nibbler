@@ -1,6 +1,6 @@
 package nibbler.game;
 
-public class WallDesign {
+public abstract class WallDesign {
     public static final String WALL_LEVEL_1 =
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\r\n" +
                     "X                                      X\r\n" +

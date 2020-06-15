@@ -1,6 +1,6 @@
 package nibbler.game;
 
-public class Head extends SnakePart {
+public class Head extends SnakePart implements Drawable {
 
     /** ENUM class for the Direction in which the snake/head can go. */
     public enum Direction {

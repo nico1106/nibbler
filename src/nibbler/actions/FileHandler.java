@@ -6,7 +6,7 @@ import nibbler.game.Player;
 import java.io.*;
 import java.util.Scanner;
 
-public class FileHandler {
+public abstract class FileHandler {
 
     /**
      * Returns the actual highscore of the player which is stored in the highscore file locally.
