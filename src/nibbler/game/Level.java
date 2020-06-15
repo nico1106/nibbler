@@ -1,5 +1,7 @@
 package nibbler.game;
 
+import java.util.ArrayList;
+
 public class Level {
 
     private int number;
@@ -7,6 +9,7 @@ public class Level {
     private int countApple;
     private int bonus;
     private int countAppleEaten = 0;
+    public ArrayList<Apple> apples = new ArrayList<>();
 
     private Wall wall;
 
@@ -24,6 +27,10 @@ public class Level {
         this.countApple = countApple;
         this.bonus = bonus;
         this.wall = new Wall(token);
+        for(int i=1;i<=countApple;i++) {
+            Apple apple = new Apple();
+            apples.add(apple);
+        }
     }
 
     /**

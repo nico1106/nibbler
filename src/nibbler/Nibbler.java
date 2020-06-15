@@ -23,7 +23,6 @@ public class Nibbler {
     private ArrayList<Level> levels;
     private GameView gameView;
     private Snake snake;
-    private Apple apple;
     private Collision collision;
     private Random random;
     private Player player;
@@ -44,12 +43,11 @@ public class Nibbler {
 
     private void initGame() {
         snake = new Snake();
-        apple = new Apple();
         collision = new Collision();
         levels = new ArrayList<Level>();
-        levels.add(new Level(2, 6, 220, WallDesign.WALL_LEVEL_2, 5000));
-        levels.add(new Level(1, 3, 300, WallDesign.WALL_LEVEL_1, 3500));
-        levels.add(new Level(3, 7, 150, WallDesign.WALL_LEVEL_3, 6500));
+        levels.add(new Level(2, 12, 220, WallDesign.WALL_LEVEL_2, 10000));
+        levels.add(new Level(1, 10, 300, WallDesign.WALL_LEVEL_1, 10000));
+        levels.add(new Level(3, 20, 220, WallDesign.WALL_LEVEL_3, 10000));
         // sort levels array list based on level number ASC
         levels.sort((a, b) -> { return a.getNumber() - b.getNumber(); });
         player = new Player();
@@ -217,11 +215,6 @@ public class Nibbler {
         try { Thread.sleep(7000); } catch (InterruptedException ignore) {}
     }
 
-    private void resetSnakeAndApple() {
-        snake = new Snake();
-        apple = new Apple();
-    }
-
     private void showLevelScreen(Level level) {
         gameView.changeResolution(10, 20);
         for (int i = 5; i >= 1; i--) {
@@ -258,9 +251,12 @@ public class Nibbler {
 
     private void doChecks(Level level) {
         // check if apple was reset and spawn it into the matchfield
-        if (apple.getX() == -1 && apple.getY() == -1 && level.getCountApple() != level.getCountAppleEaten()) setRandomPointsToApple(apple);
+        for(Apple apple: level.apples) {
+            if (apple.getX() == -1 && apple.getY() == -1 && level.getCountApple() != level.getCountAppleEaten()) setRandomPointsToApple(apple);
+        }
         // check if we have eaten enough apples to get to the next level
         if (level.getCountAppleEaten() == level.getCountApple()) {
+            System.out.println("test");
             play = false;
             gameView.clearCanvas();
             if (level.getBonus() > 0) player.setCurrentscore(player.getCurrentscore() + level.getBonus());
@@ -268,13 +264,12 @@ public class Nibbler {
             try { Thread.sleep(16); } catch (InterruptedException ignore) {}
             gameView.printCanvas();
             try { Thread.sleep(2000); } catch (InterruptedException ignore) {}
-            resetSnakeAndApple();
+            snake = new Snake();
         }
         // check if snake eats the apple
-        if (collision.collideWithApple(snake, apple)) {
+        if (collision.collideWithApple(snake, level.apples)) {
             gameView.playSound("apple_bite_sound.wav", false);
             level.setCountAppleEaten(level.getCountAppleEaten() + 1);
-            apple.reset();
             snake.addTail();
             player.setCurrentscore(player.getCurrentscore() + 10);
         }
@@ -292,7 +287,9 @@ public class Nibbler {
     private void addItemsToCanvas(Level level) {
         gameView.addToCanvas(level.getWall().getToken(), 10, 0, Color.CYAN);
         gameView.addColorStringToCanvas(Snake.head.toString(), Snake.head.getY(), Snake.head.getX());
-        gameView.addToCanvas(apple.toString(), apple.getY(), apple.getX(), Color.YELLOW);
+        for(Apple apple: level.apples) {
+            gameView.addToCanvas(apple.toString(), apple.getY(), apple.getX(), Color.YELLOW);
+        }
         gameView.addToCanvas("Player: " + player.getName(), 1, 1);
         gameView.addToCanvas(" Level: " + level.getNumber(), 2, 1, Color.ORANGE);
         gameView.addToCanvas("Highscore: " + String.format(SCORE_FORMAT, player.getHighscore()), 1, COLUMNS - 17);

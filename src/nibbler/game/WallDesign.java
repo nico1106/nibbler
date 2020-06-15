@@ -53,7 +53,7 @@ public abstract class WallDesign {
                     "X XX  X  XX  XX         XX       XX    X\r\n" +
                     "X XX  X      XX   XX    XXXXXXXXXXX    X\r\n" +
                     "X     XXXXXXXXX   XX                   X\r\n" +
-                    "X            XX      XX         XXX    X\r\n" +
+                    "X           XXX      XX         XXX    X\r\n" +
                     "X           XXX  XXXXXXXXXXXXXXXXXX    X\r\n" +
                     "X   XXXXXXXXXXX          XX            X\r\n" +
                     "X                                    XXX\r\n" +
