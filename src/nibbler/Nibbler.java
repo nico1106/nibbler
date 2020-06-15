@@ -151,7 +151,7 @@ public class Nibbler {
 
     private void setMetadata() {
         gameView.setTitle("Nibbler");
-        gameView.setStatusText("Java Programmierung SS 2020");
+        gameView.setStatusText("Nibbler");
         gameView.setWindowIcon("nibbler_icon.png");
         gameView.setDefaultBackgroundColor(Color.BLACK);
     }
@@ -223,16 +223,14 @@ public class Nibbler {
     }
 
     private void showLevelScreen(Level level) {
-        int wait = 5;
         gameView.changeResolution(10, 20);
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 5; i >= 1; i--) {
             gameView.clearCanvas();
             gameView.addToCanvas("LEVEL " + level.getNumber(), 1, 7, Color.ORANGE);
             gameView.addToCanvas("Get ready", 4, 6);
-            gameView.addToCanvasCentered("\n\n" + wait, Color.CYAN);
+            gameView.addToCanvasCentered("\n\n" + i, Color.CYAN);
             gameView.printCanvas();
             try { Thread.sleep(1000); } catch (InterruptedException ignore) {}
-            wait -= 1;
         }
     }
 
