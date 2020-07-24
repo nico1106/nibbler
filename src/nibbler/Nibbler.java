@@ -59,7 +59,6 @@ public class Nibbler {
         showStartScreen();
         gameView.stopAllSounds();
         gameView.playSound("arcade_sound_shorter.wav", true);
-        // set colormap, especially to display the colors of the snake
         HashMap<Character, Color> colorMap = new HashMap<>(Map.of('B', Color.BLACK, 'R', Color.RED, 'G', Color.GREEN));
         gameView.setColormap(colorMap);
         for (Level level : levels) {
@@ -256,7 +255,6 @@ public class Nibbler {
         }
         // check if we have eaten enough apples to get to the next level
         if (level.getCountAppleEaten() == level.getCountApple()) {
-            System.out.println("test");
             play = false;
             gameView.clearCanvas();
             if (level.getBonus() > 0) player.setCurrentscore(player.getCurrentscore() + level.getBonus());
