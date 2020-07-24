@@ -1,4 +1,4 @@
-package nibbler.ui;
+package view;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -25,7 +25,10 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author Andreas Berl
  * <pre>
- * Updates:
+ * Version 5.3:
+ * getKeyCodes ist jetzt public
+ * Version 5.2:
+ * Rechte Maustaste repariert
  * Javadoc Maus und Tasten repariert
  * getSringFromUser()
  * getKeyCodesFromPressedKeys
@@ -34,8 +37,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class GameView {
 
     private static class Version {
-        private final static String VERSION = "5.1";
-        private final static LocalDate DATE = LocalDate.parse("2020-03-11");
+        private final static String VERSION = "5.3";
+        private final static LocalDate DATE = LocalDate.parse("2020-07-07");
         private final static String STANDARDTITLE = "GameView";
         private final static String SIGNATURE = "Prof. Dr. Andreas Berl - TH Deggendorf";
 
@@ -667,7 +670,7 @@ public class GameView {
      *
      * @return Alle gerade gedrückten Tasten als <code>KeyCode</code> Ereignisse.
      */
-    Integer[] getKeyCodesOfCurrentlyPressedKeys() {
+    public Integer[] getKeyCodesOfCurrentlyPressedKeys() {
         return keyboard.getKeyCodesOfCurrentlyPressedKeys();
     }
 
@@ -1183,7 +1186,7 @@ public class GameView {
                 if (!keyCodesOfCurrentlyPressedKeys.contains(keyEvent.getKeyCode()))
                     keyCodesOfCurrentlyPressedKeys.add(keyEvent.getKeyCode());
             } else if (keyEvent.getID() == KeyEvent.KEY_RELEASED) {
-                keyCodesOfCurrentlyPressedKeys.remove(keyEvent.getKeyCode());
+                keyCodesOfCurrentlyPressedKeys.remove((Integer) keyEvent.getKeyCode());
             }
         }
 
@@ -1276,7 +1279,7 @@ public class GameView {
                 mouseEventColumn = Math.min(swingAdapter.getColumns() - 1, mouseEventColumn);
                 MouseEvent fixedMouseEvent = new MouseEvent(mouseEvent.getComponent(), mouseEvent.getID(),
                         mouseEvent.getWhen(), mouseEvent.getModifiersEx(), mouseEventColumn, mouseEventLine,
-                        mouseEvent.getClickCount(), mouseEvent.isPopupTrigger());
+                        mouseEvent.getClickCount(), mouseEvent.isPopupTrigger(), mouseEvent.getButton());
                 if (mousePointerEvents.size() == MOUSE_EVENT_BUFFER_SIZE) {
                     mousePointerEvents.remove();
                 }
