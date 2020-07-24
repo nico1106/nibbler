@@ -1,4 +1,4 @@
-package view;
+package nibbler.ui;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
